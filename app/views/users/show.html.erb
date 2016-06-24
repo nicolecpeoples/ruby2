@@ -15,12 +15,12 @@
 
 	<tbody>
 	
-	<% @liked_songs.group("song_id").each do | song | %>
+	<% @user.songs_liked.group("song_id").each do | song | %>
 		<tr>
-			<td><%= song.song.artist %> </td>
-			<td> <%= song.song.title %></td>
+			<td><%= song.artist %> </td>
+			<td> <%= song.title %></td>
 			
-			<td>  </td>
+			<td> <%  %> </td>
 		</tr>
 		<% end %>
 	</tbody>
