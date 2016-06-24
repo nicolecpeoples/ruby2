@@ -15,12 +15,12 @@
 
 	<tbody>
 	
-	<% @liked_songs.each do | song | %>
+	<% @liked_songs.group("song_id").each do | song | %>
 		<tr>
 			<td><%= song.song.artist %> </td>
 			<td> <%= song.song.title %></td>
 			
-			<td>  <%= Playlist.where(user: @user.id,  song: song.id).count %></td>
+			<td>  </td>
 		</tr>
 		<% end %>
 	</tbody>

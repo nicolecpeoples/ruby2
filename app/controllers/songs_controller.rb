@@ -18,8 +18,9 @@ class SongsController < ApplicationController
   end 
 
   def show
+    @user = User.find(params[:id])
     @song = Song.find(params[:id])
-    @playlists = Playlist.where(song: @song).group("user_id")
+    @playlists = Playlist.where(song: @song)
     
   end
 

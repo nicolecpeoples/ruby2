@@ -36,7 +36,7 @@ include SessionsHelper
 
   def show
   	@user = User.find(params[:id])
-    @liked_songs = Playlist.where(user: @user).group("song_id")
+    @liked_songs = Playlist.where(user: @user)
     
   end
 
