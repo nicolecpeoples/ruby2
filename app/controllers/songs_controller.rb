@@ -18,6 +18,7 @@ class SongsController < ApplicationController
   end 
 
   def show
+    @songs = Song.all
     @user = User.find(params[:id])
     @song = Song.find(params[:id])
     @playlists = Playlist.where(song: @song)
