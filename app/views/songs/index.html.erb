@@ -1,0 +1,47 @@
+<div class="row">
+	<h3> All the songs in our hub: </h3>
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<td> Artist </td>
+			<td> Title </td>
+			<td> Number of Adds </td>
+			<td> Add to Playlist </td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @songs.each do |song| %>
+		<tr>
+			<td> <%= song.artist %></td>
+			<td> <%= link_to song.title, song %></td>
+			<td> <%=   song.playlists.count %></td>
+			<td>  <form action="/addsong" method="post"> 
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+					<input type="hidden" name="song[id]" value="<%= song.id %>" >
+					<input type="submit" value="Add"> 
+				</form></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<h2> Add Song </h2>
+		<% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+		<%= form_for(@song) do |s| %>
+			
+			<%= s.label :title, "Title" %>
+			<%= s.text_field :title, class: 'form-control' %>
+
+			<%= s.label :artist, "Artist" %>
+			<%= s.text_field :artist, class: 'form-control' %>
+
+			<%= s.submit "Add Song", class: "btn btn-primary"  %>
+		<% end %>
+	</div>
+</div>

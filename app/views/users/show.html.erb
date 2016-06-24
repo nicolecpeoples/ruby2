@@ -1,0 +1,28 @@
+<div class="row">
+	<% if current_user.id != @user.id %>
+		<h2> <%= @user.first_name %> <%= @user.last_name %>'s Playlist </h2>
+	<% else %> 
+		<h2> Your Playlist </h2>
+	<% end %>
+	<table class="table table-striped">
+	<thead>
+		<tr>
+			<td> Artist </td>
+			<td> Title </td>
+			<td> Times Added </td>
+		</tr>
+	</thead>
+
+	<tbody>
+	
+	<% @liked_songs.each do | song | %>
+		<tr>
+			<td><%= song.song.artist %> </td>
+			<td> <%= song.song.title %></td>
+			
+			<td>  <%= Playlist.where(user: @user.id,  song: song.id).count %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+</div>

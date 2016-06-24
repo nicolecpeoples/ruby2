@@ -1,0 +1,19 @@
+<div class="row">
+	<h2> Others who have added <%= @song.artist %> - <%= @song.title %>  </h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td> Artist </td>
+			<td> Times Added </td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @playlists.each do |playlist| %>
+		<tr>
+		<td><%= link_to  (playlist.user.first_name + " " + playlist.user.last_name), playlist.user %></td>
+		<td> <%= %> </td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
