@@ -15,19 +15,15 @@
 
 	<tbody>
 	
-	<% @user.songs.each do | song | %>
+	<% @songs.each do | song | %>
 		<tr>
-			<td><%= song.artist %> </td>
-			<td> <%= song.title %></td>
+			<td><%= song.title %> </td>
+			<td> <%= song.artist %></td>
 			
 			<td> <%  %> </td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
-test
-<% @songs.each  do |song| %>
-	<%= song.title %>
-<% end %>
 
 </div>
