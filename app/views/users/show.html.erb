@@ -15,7 +15,7 @@
 
 	<tbody>
 	
-	<% @user.songs_liked.each do | song | %>
+	<% @user.songs.each do | song | %>
 		<tr>
 			<td><%= song.artist %> </td>
 			<td> <%= song.title %></td>
@@ -25,4 +25,9 @@
 		<% end %>
 	</tbody>
 </table>
+test
+<% @songs.each  do |song| %>
+	<%= song.title %>
+<% end %>
+
 </div>

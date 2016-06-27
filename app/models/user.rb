@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :songs
+	has_many :songs, through: :playlists, source: :song
 	has_many :playlists, dependent: :destroy
-    has_many :songs_liked, through: :playlists, source: :song
 
 
   before_save {self.email = email.downcase}
